@@ -6,7 +6,7 @@ const ContactList = ({contacts, onDeleteContact})=>(
 
   <ul>
     {contacts.map(({id, name, number}) => (
-      <li className={s.item} key={id}> {name}: {number}
+      <li className={s.item} key={id}> {name}: {{ number } !== Number({ number }) ? alert('Error! Number isn`t number!' ) : Number({ number })};
       <button className={s.buttonDelete} type="button" onClick={()=> onDeleteContact(id)}>Delete</button></li>
     ))}
   </ul>
@@ -17,7 +17,7 @@ ContactList.propTypes = {
     PropTypes.shape({
       id: PropTypes.string,
       name: PropTypes.string,
-      number: PropTypes.string,
+      number: PropTypes.number,
     }),
   )
 };

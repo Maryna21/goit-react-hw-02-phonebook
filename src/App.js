@@ -17,7 +17,7 @@ class App extends Component {
     const contact = {
         id: shortid.generate(),
         name,
-        number,
+        number: number,
     };
     this.setState(prevState =>{
       if(this.state.contacts.find((contact)=>contact.name===name)){
@@ -39,6 +39,7 @@ deleteContact = contactId =>{
 changeFilter = filter => {
   this.setState({filter});
 }
+  
 getVisibleContacts = ()=>{
   const {contacts, filter} = this.state;
 
@@ -54,10 +55,8 @@ getVisibleContacts = ()=>{
       <Container>
        <h1 className={s.title}>Phonebook</h1>
      <ContactForm onAddContact={this.addContact} />
-     {visibleContacts.length > 1 && <div><h2>Contacts</h2><Filter value={filter} onChangeFilter ={this.changeFilter}/></div>}
-     
-     {visibleContacts.length > 0 && <ContactList contacts={visibleContacts} onDeleteContact={this.deleteContact}/>}
-    
+     {visibleContacts.length > 0 && <div><h2>Contacts</h2><Filter value={filter} onChangeFilter ={this.changeFilter}/>
+     <ContactList contacts={visibleContacts} onDeleteContact={this.deleteContact}/></div>}
      </Container>
     );
   }
